@@ -10,7 +10,7 @@ namespace UdemyAuthServer.Core.Services
 {
     public interface IAuthentaticationService
     {
-        Task<Response<TokenDto>> CreateToken(LoginDto loginDto);
+        Task<Response<TokenDto>> CreateTokenAsync(LoginDto loginDto);
 
         Task<Response<TokenDto>> CreateTokenByRefreshToken(string refreshToken);
 
@@ -18,7 +18,7 @@ namespace UdemyAuthServer.Core.Services
         Task<Response<NoDataDto>> RevokeRefreshToken(string refreshToken);
 
         //5 taneye kadar app setting dosyasında tutulaiblir fazlası ise databasede tutmak mantıklıdır.
-        Task<Response<ClientTokenDto>> CreteTokenByClient(ClientLoginDto clientLoginDto);
+        Response<ClientTokenDto> CreteTokenByClient(ClientLoginDto clientLoginDto);
 
 
 

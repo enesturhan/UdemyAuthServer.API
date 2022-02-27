@@ -32,7 +32,7 @@ namespace UdemyAuthServer.Service.Services
 
         }
 
-        public async Task<Response<IEnumerable<TDto>>> GetAllAsync(int id)
+        public async Task<Response<IEnumerable<TDto>>> GetAllAsync()
         {
             var products = ObjectMapper.Mapper.Map<List<TDto>>(await _genericRepository.GetAllAsync());
 
