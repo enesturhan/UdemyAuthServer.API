@@ -1,4 +1,5 @@
 
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -90,8 +91,10 @@ namespace UdemyAuthServer.API
                     ClockSkew = TimeSpan.Zero
                 };
             });
-            services.AddControllers();
-
+            services.AddControllers().AddFluentValidation(options =>
+            {
+                options.RegisterValidatorsFromAssemblyContaining<Startup>();
+            });
 
             services.AddSwaggerGen(c =>
             {
